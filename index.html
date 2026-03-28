@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KING Fitness Thanh Lân | Đẳng Cấp Thể Hình</title>
-    
+    <title>KING Fitness Thanh Lân | Techno-Cyber Edition</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oswald:wght@500;700&family=Prata&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #151515;
-            --primary-red: #e60000;
-            --primary-red-hover: #ff1a1a;
+            --bg-dark: #121212;
+            --bg-card: #1a1a1a;
+            --primary-cyan: #00f7ff;
+            --primary-cyan-hover: #00d1d9;
             --text-light: #ffffff;
             --text-gray: #a0a0a0;
+            --cyber-glow: 0 0 20px rgba(0, 247, 255, 0.5);
             --gold: #d4af37;
         }
 
@@ -34,15 +37,39 @@
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* --- HIỆU ỨNG LIGHTHOUSE --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%,
+                    transparent 0deg,
+                    rgba(0, 247, 255, 0.02) 10deg,
+                    rgba(0, 247, 255, 0.1) 25deg,
+                    rgba(0, 247, 255, 0.02) 40deg,
+                    transparent 55deg);
+            animation: rotateLighthouse 15s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes rotateLighthouse {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         h1, h2, h3, h4 {
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
         .container {
             max-width: 1200px;
@@ -50,481 +77,192 @@
             padding: 0 20px;
         }
 
-        /* --- Header & Navbar --- */
         header {
             position: fixed;
-            top: 0; width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 247, 255, 0.3);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            height: 85px;
         }
 
-        .logo img {
-            height: 60px;
-            object-fit: contain;
-        }
+        .logo { font-size: 2.2rem; font-weight: 700; text-decoration: none; }
+        .logo-king { color: #ffffff; }
+        .logo-fitness { color: var(--primary-cyan); text-shadow: var(--cyber-glow); }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
+        .nav-links { display: flex; gap: 30px; }
         .nav-links a {
             font-weight: 600;
-            font-size: 15px;
-            transition: color 0.3s;
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--primary-red);
-        }
+        .nav-links a:hover { color: var(--primary-cyan); text-shadow: var(--cyber-glow); }
 
         .btn-header {
-            background: var(--primary-red);
-            color: #fff;
-            padding: 10px 25px;
+            background: var(--primary-cyan);
+            color: #000;
+            padding: 12px 28px;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: var(--cyber-glow);
         }
 
-        .btn-header:hover {
-            background: var(--primary-red-hover);
-            box-shadow: 0 0 15px rgba(230, 0, 0, 0.5);
-        }
-
-        /* --- Hero Section --- */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('image_f362b6.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px; /* Offset for header */
         }
 
         .hero-content h1 {
+            font-family: 'Prata', serif;
             font-size: 4.5rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-
-        .hero-content h1 span {
-            color: var(--primary-red);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
+            line-height: 1.1;
             margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            text-transform: none;
         }
 
-        /* --- General Section Style --- */
-        section {
-            padding: 80px 0;
-        }
+        .hero-content .highlight { color: var(--primary-cyan); text-shadow: var(--cyber-glow); font-weight: bold; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
+        section { padding: 100px 0; }
+        .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; position: relative; padding-bottom: 20px; }
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 80px; height: 4px;
-            background: var(--primary-red);
+            bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 4px; background: var(--primary-cyan); box-shadow: var(--cyber-glow);
         }
 
-        /* --- Info Section --- */
         .info-wrapper {
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(0, 247, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
         }
 
-        .info-img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
+        .info-img { width: 100%; height: 500px; object-fit: cover; filter: brightness(0.6) grayscale(0.2); }
+        .info-content { padding: 50px; text-align: center; }
+        .info-content h2 { font-size: 2.8rem; color: var(--primary-cyan); margin-bottom: 25px; }
 
-        .info-content {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .info-content h2 {
-            font-size: 3rem;
-            color: var(--primary-red);
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(230, 0, 0, 0.2);
-        }
-
-        .info-details {
-            font-size: 1.2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .info-details i {
-            color: var(--primary-red);
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-
-        /* --- Promos Slider Section --- */
+        /* Slider */
         .slider-wrapper {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            border: 2px solid var(--primary-red);
+            position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden;
+            border-radius: 12px; border: 1px solid var(--primary-cyan); box-shadow: var(--cyber-glow);
         }
 
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+        .slider-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slider-slide { width: 100%; flex-shrink: 0; position: relative; height: 600px; }
+        .slider-slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3); }
+
+        .slide-content {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 85%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px);
+            padding: 40px; border-radius: 15px; border: 1px solid rgba(0, 247, 255, 0.3); text-align: center;
         }
 
-        .slider-track img {
-            width: 100%;
-            flex-shrink: 0;
-            object-fit: cover;
-            height: 600px;
-        }
-
+        .slide-content h3 { color: var(--primary-cyan); font-size: 2rem; margin-bottom: 20px; }
         .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            border: none;
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 10;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6); color: var(--primary-cyan); border: 1px solid var(--primary-cyan);
+            width: 55px; height: 55px; border-radius: 50%; cursor: pointer; z-index: 10; transition: 0.3s;
         }
+        .slider-btn:hover { background: var(--primary-cyan); color: #000; box-shadow: var(--cyber-glow); }
+        .prev-btn { left: 25px; }
+        .next-btn { right: 25px; }
 
-        .slider-btn:hover { background: var(--primary-red); }
-        .prev-btn { left: 20px; }
-        .next-btn { right: 20px; }
-
-        /* --- Pricing Section --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        /* Pricing */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .price-card {
-            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 10px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            position: relative;
+            background: #181818; border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 30px; text-align: center; border-radius: 10px; transition: 0.4s; position: relative;
         }
+        .price-card:hover { transform: translateY(-15px); border-color: var(--primary-cyan); box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2); }
+        .price-card.popular { border: 2px solid var(--primary-cyan); }
+        .badge { position: absolute; top: 0; right: 0; background: var(--primary-cyan); color: #000; padding: 8px 20px; font-weight: 800; font-size: 0.8rem; border-bottom-left-radius: 12px; }
+        .price { font-size: 2.8rem; font-weight: bold; color: var(--primary-cyan); margin: 20px 0 10px; font-family: 'Oswald'; }
+        .btn-register { width: 100%; padding: 15px; background: transparent; border: 2px solid var(--primary-cyan); color: var(--primary-cyan); font-weight: 800; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
+        .btn-register:hover { background: var(--primary-cyan); color: #000; box-shadow: var(--cyber-glow); }
 
-        .price-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-red);
-            box-shadow: 0 15px 30px rgba(230,0,0,0.15);
-        }
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; background: var(--bg-card); padding: 50px; border-radius: 15px; border: 1px solid rgba(0, 247, 255, 0.2); }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 18px; background: rgba(0, 0, 0, 0.6); border: 1px solid #333; color: #fff; margin-bottom: 20px; border-radius: 6px; font-family: inherit; }
+        .btn-submit { background: var(--primary-cyan); color: #000; border: none; padding: 20px; font-weight: 800; cursor: pointer; width: 100%; border-radius: 6px; text-transform: uppercase; font-size: 1.1rem; }
 
-        .price-card h3 {
-            font-size: 1.8rem;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-        }
+        /* Map */
+        .map-container iframe { width: 100%; height: 100%; min-height: 400px; border-radius: 8px; filter: invert(90%) hue-rotate(180deg) brightness(1.2); border: 1px solid rgba(255, 255, 255, 0.1); }
 
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-            font-family: 'Oswald', sans-serif;
-            margin-bottom: 5px;
-        }
+        footer { background: #0a0a0a; padding: 60px 0; text-align: center; border-top: 1px solid #222; }
+        footer span { color: var(--primary-cyan); font-weight: bold; }
 
-        .price-card.popular {
-            border-color: var(--primary-red);
-        }
-        
-        .badge {
-            position: absolute;
-            top: 0; right: 0;
-            background: var(--primary-red);
-            padding: 5px 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-bottom-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .sub-price {
-            font-size: 0.9rem;
-            color: var(--gold);
-            margin-bottom: 25px;
-            min-height: 20px;
-        }
-
-        .btn-register {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 2px solid var(--primary-red);
-            color: var(--primary-red);
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .btn-register:hover {
-            background: var(--primary-red);
-            color: #fff;
-        }
-
-        /* --- Contact Section --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 10px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 5px;
-            font-family: inherit;
-            transition: 0.3s;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-red);
-        }
-
-        .contact-form textarea { resize: vertical; min-height: 120px; }
-
-        .btn-submit {
-            background: var(--primary-red);
-            color: #fff;
-            border: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover { background: var(--primary-red-hover); }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 350px;
-            border-radius: 5px;
-            filter: grayscale(80%) contrast(1.2);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #050505;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .footer-info {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .footer-info span {
-            color: var(--primary-red);
-            font-weight: bold;
-        }
-
-        .copyright { color: var(--text-gray); font-size: 0.9rem; }
-
-        /* --- Floating Widget --- */
-        .floating-phone {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-red);
-            color: #fff;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 0 20px rgba(230,0,0,0.5);
-            z-index: 100;
-            animation: pulse 2s infinite;
-        }
+        .floating-phone { position: fixed; bottom: 35px; right: 35px; background: var(--primary-cyan); color: #000; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: var(--cyber-glow); z-index: 100; animation: pulse 2s infinite; text-decoration: none; }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230,0,0,0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(230,0,0,0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230,0,0,0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 247, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
         }
 
-        .floating-phone i { animation: ring 2s infinite; }
-
-        @keyframes ring {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30%, 50% { transform: rotate(-15deg); }
-            20%, 40%, 60% { transform: rotate(15deg); }
-            70%, 80%, 90% { transform: rotate(0deg); }
-        }
-
-        /* --- Modal (Popup) --- */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 2000;
-            opacity: 0; visibility: hidden;
-            transition: 0.3s;
-        }
-
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--bg-card); padding: 50px; border-radius: 15px; max-width: 500px; width: 90%; position: relative; border: 2px solid var(--primary-cyan); text-align: center; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; color: #fff; cursor: pointer; }
 
-        .modal-content {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 10px;
-            width: 90%; max-width: 500px;
-            position: relative;
-            text-align: center;
-            border: 1px solid var(--primary-red);
-            transform: scale(0.9);
-            transition: 0.3s;
-        }
-
-        .modal-overlay.active .modal-content { transform: scale(1); }
-
-        .close-btn {
-            position: absolute; top: 15px; right: 20px;
-            font-size: 1.5rem; color: #fff; cursor: pointer; transition: 0.3s;
-        }
-        .close-btn:hover { color: var(--primary-red); }
-
-        .modal-content h3 {
-            color: var(--primary-red); margin-bottom: 20px; font-size: 1.8rem;
-        }
-
-        .qr-placeholder {
-            width: 200px; height: 200px;
-            background: #fff; margin: 0 auto 20px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 10px; padding: 10px;
-        }
-        .qr-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-
-        .modal-content form { display: flex; flex-direction: column; gap: 15px; }
-        .modal-content input {
-            padding: 12px; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px;
-        }
-        .modal-content button {
-            padding: 12px; background: var(--primary-red); color: #fff; border: none; font-weight: bold; border-radius: 5px; cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
-            .info-content h2 { font-size: 2rem; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; /* Thêm menu hamburger nếu cần */ }
-            .slider-track img { height: 400px; }
-        }
+        /* Hiệu ứng loading nút bấm */
+        .btn-loading { pointer-events: none; opacity: 0.7; }
     </style>
 </head>
+
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="image_f36d20.png" alt="KING Fitness Logo" onerror="this.src='https://via.placeholder.com/150x60/0a0a0a/ffffff?text=KING+FITNESS'">
-            </a>
+        <div class="nav-container container">
+            <a href="#" class="logo"><span class="logo-king">KING</span><span class="logo-fitness">Fitness</span></a>
             <nav class="nav-links">
-                <a href="#info">Thông tin CLB</a>
-                <a href="#promos">Ưu đãi</a>
+                <a href="#info">Thông tin</a>
+                <a href="#promos">Quyền lợi</a>
                 <a href="#pricing">Bảng giá</a>
                 <a href="#contact">Liên hệ</a>
             </nav>
-            <a href="#pricing" class="btn-header">Tham gia ngay</a>
+            <a href="#pricing" class="btn-header">Gia nhập ngay</a>
         </div>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content container">
-            <h1>ĐÁNH THỨC <span>SỨC MẠNH</span> TIỀM ẨN</h1>
-            <p>Trải nghiệm không gian tập luyện đẳng cấp, trang thiết bị hiện đại và dịch vụ chuyên nghiệp hàng đầu tại khu vực Hoàng Mai.</p>
-            <a href="#pricing" class="btn-header" style="font-size: 1.2rem; padding: 15px 40px;">Bắt đầu hành trình</a>
+            <h1>ĐÁNH THỨC <span class="highlight">SỨC MẠNH</span><br>KỶ NGUYÊN MỚI</h1>
+            <p style="color: var(--text-gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px;">Hệ thống tập
+                luyện Techno-Gym hiện đại bậc nhất. <br>Nơi bản lĩnh được khẳng định.</p>
+            <a href="#pricing" class="btn-header" style="font-size: 1.2rem; padding: 18px 50px;">Bắt đầu hành trình</a>
         </div>
     </section>
 
     <section id="info" class="container">
         <div class="info-wrapper">
-            <img src="image_f36df7.jpg" alt="Toàn cảnh KING Fitness" class="info-img" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop'">
+            <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop"
+                alt="KING Fitness" class="info-img">
             <div class="info-content">
                 <h2>KING FITNESS THANH LÂN</h2>
                 <div class="info-details">
-                    <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 135 Thanh Lân - Vĩnh Hưng - Hoàng Mai - Hà Nội</p>
-                    <p><i class="fas fa-phone-alt"></i> <strong>Hotline:</strong> 0973.407.226</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 135 Thanh Lân - Vĩnh Hưng - Hoàng Mai - Hà Nội</p>
+                    <p><i class="fas fa-phone-alt"></i> Hotline: 0973.407.226</p>
                 </div>
             </div>
         </div>
@@ -532,63 +270,55 @@
 
     <section id="promos">
         <div class="container">
-            <h2 class="section-title">CHƯƠNG TRÌNH ƯU ĐÃI</h2>
+            <h2 class="section-title">QUYỀN LỢI VÀ ƯU ĐÃI</h2>
             <div class="slider-wrapper">
                 <button class="slider-btn prev-btn" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
                 <div class="slider-track" id="sliderTrack">
-                    <img src="image_f371b8.jpg" alt="Ưu đãi 1" onerror="this.src='https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop'">
-                    <img src="image_f371c0.jpg" alt="Ưu đãi 2" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop'">
-                    <img src="image_f37466.jpg" alt="Ưu đãi 3" onerror="this.src='https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop'">
-                    <img src="image_f3746b.jpg" alt="Ưu đãi 4" onerror="this.src='https://images.unsplash.com/photo-1593079831268-3381b0c1239b?q=80&w=1470&auto=format&fit=crop'">
-                    <img src="image_f37485.jpg" alt="Ưu đãi 5" onerror="this.src='https://images.unsplash.com/photo-1526536408603-71ba6b1b1ce2?q=80&w=1470&auto=format&fit=crop'">
-                    <img src="image_f374a1.jpg" alt="Ưu đãi 6" onerror="this.src='https://images.unsplash.com/photo-1534258936925-c58bed479fcb?q=80&w=1631&auto=format&fit=crop'">
-                    <img src="image_f374a6.jpg" alt="Ưu đãi 7" onerror="this.src='https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1470&auto=format&fit=crop'">
+                    <div class="slider-slide">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1470&auto=format&fit=crop">
+                        <div class="slide-content">
+                            <h3>1. NỘI DUNG TẶNG KÈM</h3>
+                            <p>Tặng thêm 02 buổi tập cùng Huấn luyện viên cá nhân (PT).</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=1470&auto=format&fit=crop">
+                        <div class="slide-content">
+                            <h3>2. TIỆN ÍCH MIỄN PHÍ</h3>
+                            <p>Khăn tập, tủ Locker, Nước uống & Wifi miễn phí.</p>
+                        </div>
+                    </div>
                 </div>
                 <button class="slider-btn next-btn" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
             </div>
         </div>
     </section>
 
     <section id="pricing" class="container">
         <h2 class="section-title">BẢNG GIÁ HỘI VIÊN</h2>
-        <div class="pricing-grid">
+        <div class="pricing-grid" id="pricingGrid">
             <div class="price-card">
                 <h3>Gói 1 Ngày</h3>
                 <div class="price">50.000đ</div>
-                <div class="sub-price">Trải nghiệm không giới hạn</div>
                 <button class="btn-register" onclick="openModal('Gói 1 Ngày')">Đăng ký</button>
             </div>
             <div class="price-card popular">
-                <div class="badge">HOT</div>
+                <div class="badge">BÁN CHẠY</div>
                 <h3>Gói 1 Tháng</h3>
                 <div class="price">350.000đ</div>
-                <div class="sub-price">Học sinh / Sinh viên: 320.000đ</div>
                 <button class="btn-register" onclick="openModal('Gói 1 Tháng')">Đăng ký</button>
-            </div>
-            <div class="price-card">
-                <h3>Gói 2 Tháng</h3>
-                <div class="price">590.000đ</div>
-                <div class="sub-price">Tiết kiệm 110.000đ</div>
-                <button class="btn-register" onclick="openModal('Gói 2 Tháng')">Đăng ký</button>
             </div>
             <div class="price-card">
                 <h3>Gói 3 Tháng</h3>
                 <div class="price">800.000đ</div>
-                <div class="sub-price">Cam kết thay đổi vóc dáng</div>
                 <button class="btn-register" onclick="openModal('Gói 3 Tháng')">Đăng ký</button>
             </div>
             <div class="price-card popular">
-                <div class="badge">BÁN CHẠY</div>
+                <div class="badge">TIẾT KIỆM</div>
                 <h3>Gói 6 Tháng</h3>
                 <div class="price">1.500.000đ</div>
-                <div class="sub-price">Chỉ 250k / tháng</div>
                 <button class="btn-register" onclick="openModal('Gói 6 Tháng')">Đăng ký</button>
-            </div>
-            <div class="price-card">
-                <h3>Gói 12 Tháng</h3>
-                <div class="price">2.500.000đ</div>
-                <div class="sub-price">Chỉ ~208k / tháng</div>
-                <button class="btn-register" onclick="openModal('Gói 12 Tháng')">Đăng ký</button>
             </div>
         </div>
     </section>
@@ -597,110 +327,149 @@
         <h2 class="section-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
         <div class="contact-grid">
             <form class="contact-form" id="contactForm">
-                <input type="text" id="name" placeholder="Họ và tên của bạn" required>
-                <input type="tel" id="phone" placeholder="Số điện thoại" required>
-                <input type="email" id="email" placeholder="Email (Không bắt buộc)">
-                <textarea id="message" placeholder="Bạn cần hỗ trợ gì?"></textarea>
-                <button type="submit" class="btn-submit">Gửi thông tin</button>
+                <input type="text" id="contactName" placeholder="Họ và tên" required>
+                <input type="tel" id="contactPhone" placeholder="Số điện thoại" required>
+                <textarea id="contactMsg" placeholder="Bạn cần hỗ trợ gì?"></textarea>
+                <button type="submit" class="btn-submit" id="submitBtn">Gửi thông tin ngay</button>
             </form>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3213567794967!2d105.87708531533139!3d20.979754986024844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ae8a5291b5d1%3A0x8e5f8f53c15332f1!2zMTM1IFRoYW5oIEzDom4sIFRoYW5oIFRyw6wsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1svi!2s!4v1698765432100!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.109855325501!2d105.88241531533177!3d20.988229894534726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b3f88647575305%3A0x6336592233626963!2zMTM1IFRoYW5oIEzDom4sIFZÜbmggSMawbmcsIEhvw6BuZyBNYWksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1648480000000!5m2!1svi!2s" 
+                allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-info">
-                <p>Giờ hoạt động: <span>5:00 – 21:00</span> (Tất cả các ngày trong tuần)</p>
-            </div>
-            <p class="copyright">&copy; 2024 KING Fitness. All Rights Reserved.</p>
+            <p>Thời gian hoạt động: <span>5:00 – 21:00 (Hàng ngày)</span></p>
+            <p>© 2026 KING Fitness Thanh Lân. Techno-Cyber Design.</p>
         </div>
     </footer>
 
-    <a href="tel:0973407226" class="floating-phone">
-        <i class="fas fa-phone-alt"></i>
-    </a>
+    <a href="tel:0973407226" class="floating-phone"><i class="fas fa-phone-alt"></i></a>
 
     <div class="modal-overlay" id="registerModal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalPlanName">Đăng Ký Gói</h3>
-            <p style="margin-bottom: 20px; color: var(--text-gray);">Quét mã QR để thanh toán hoặc để lại thông tin để PT tư vấn.</p>
-            
-            <div class="qr-placeholder">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ChuyenKhoanKINGFitness" alt="QR Code">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h3 id="modalPlanName">Đăng Ký</h3>
+            <div style="background: #fff; padding: 10px; display: inline-block; margin-bottom: 20px; border-radius: 5px;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=KINGFitness135ThanhLan" alt="QR">
             </div>
-
             <form id="quickRegisterForm">
-                <input type="text" placeholder="Họ và tên" required>
-                <input type="tel" placeholder="Số điện thoại" required>
-                <button type="submit">Xác nhận đăng ký</button>
+                <input type="text" id="regName" placeholder="Họ tên" required>
+                <input type="tel" id="regPhone" placeholder="SĐT" required>
+                <button type="submit" class="btn-submit" id="regBtn">Xác nhận đăng ký</button>
             </form>
         </div>
     </div>
 
     <script>
-        // --- Slider Logic ---
+        // --- CẤU HÌNH BACKEND ---
+        const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbwonPtOJj3Th9eyxClxSGgUZNo-jLAmDl7TZhTtfoUcXeIKg8GTIQtHnEyvA-WBu-1j/exec';
+
+        // 1. Gửi dữ liệu khách hàng
+        async function postData(data, btnId) {
+            const btn = document.getElementById(btnId);
+            const originalText = btn.innerText;
+            btn.innerText = "Đang xử lý...";
+            btn.classList.add('btn-loading');
+
+            try {
+                // Sử dụng mode no-cors để gửi sang GAS
+                await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                // Vì no-cors không trả về kết quả JSON, ta mặc định là thành công sau khi gửi
+                alert('Tuyệt vời! Thông tin của bạn đã được gửi. KING Fitness sẽ liên hệ sớm nhất.');
+                if(btnId === 'regBtn') closeModal();
+            } catch (error) {
+                console.error('Lỗi:', error);
+                alert('Có lỗi xảy ra. Bạn vui lòng gọi hotline 0973.407.226 nhé!');
+            } finally {
+                btn.innerText = originalText;
+                btn.classList.remove('btn-loading');
+            }
+        }
+
+        // Sự kiện Form Liên hệ
+        document.getElementById('contactForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const data = {
+                name: document.getElementById('contactName').value,
+                phone: document.getElementById('contactPhone').value,
+                message: document.getElementById('contactMsg').value,
+                plan: "Tư vấn chung"
+            };
+            postData(data, 'submitBtn');
+            e.target.reset();
+        });
+
+        // Sự kiện Form Đăng ký nhanh (Modal)
+        document.getElementById('quickRegisterForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const plan = document.getElementById('modalPlanName').innerText.replace('Đăng Ký: ', '');
+            const data = {
+                name: document.getElementById('regName').value,
+                phone: document.getElementById('regPhone').value,
+                plan: plan,
+                message: "Đăng ký từ bảng giá"
+            };
+            postData(data, 'regBtn');
+            e.target.reset();
+        });
+
+        // 2. Tự động cập nhật nội dung từ Sheet (CMS) - Nếu bạn có tab CauHinh
+        async function fetchCMS() {
+            try {
+                const response = await fetch(BACKEND_URL);
+                const config = await response.json();
+                // Ví dụ: nếu bạn có cột 'Slogan' trong tab CauHinh
+                // if(config.Slogan) document.querySelector('.hero-content p').innerText = config.Slogan;
+            } catch (e) { console.log("Chưa có cấu hình CMS"); }
+        }
+        window.addEventListener('load', fetchCMS);
+
+        // --- UI LOGIC (Slider, Modal...) ---
         let currentIndex = 0;
         const track = document.getElementById('sliderTrack');
-        const slides = track.children;
-        const totalSlides = slides.length;
+        const slides = document.querySelectorAll('.slider-slide');
+        const dotsContainer = document.getElementById('sliderDots');
 
-        function moveSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = totalSlides - 1; // Quay lại cuối
-            } else if (currentIndex >= totalSlides) {
-                currentIndex = 0; // Quay lại đầu
-            }
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => { currentIndex = i; updateSlider(); });
+            dotsContainer.appendChild(dot);
+        });
+
+        function moveSlide(dir) {
+            currentIndex = (currentIndex + dir + slides.length) % slides.length;
             updateSlider();
         }
 
         function updateSlider() {
-            // Dịch chuyển track theo chiều ngang
-            const offset = -currentIndex * 100;
-            track.style.transform = `translateX(${offset}%)`;
-        }
-        
-        // Tự động chuyển slide sau mỗi 3 giây (Tuỳ chọn)
-        setInterval(() => {
-            moveSlide(1);
-        }, 3000);
-
-        // --- Modal Logic ---
-        const modal = document.getElementById('registerModal');
-        const modalTitle = document.getElementById('modalPlanName');
-
-        function openModal(planName) {
-            modalTitle.innerText = `Đăng Ký: ${planName}`;
-            modal.classList.add('active');
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex));
         }
 
-        function closeModal() {
-            modal.classList.remove('active');
+        setInterval(() => moveSlide(1), 5000);
+
+        function openModal(name) {
+            document.getElementById('modalPlanName').innerText = `Đăng Ký: ${name}`;
+            document.getElementById('registerModal').classList.add('active');
         }
+        function closeModal() { document.getElementById('registerModal').classList.remove('active'); }
 
-        // Đóng modal khi click ra ngoài vùng nội dung
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // --- Form Submission Simulation ---
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Ngăn load lại trang
-            alert('Cảm ơn bạn! Thông tin của bạn đã được gửi đến quản lý hệ thống KING Fitness (0973.407.226). Chúng tôi sẽ liên hệ lại sớm nhất.');
-            this.reset();
-        });
-
-        document.getElementById('quickRegisterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Đăng ký thành công! Vui lòng lưu lại hình ảnh thanh toán nếu bạn đã quét mã QR.');
-            closeModal();
-            this.reset();
-        });
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('registerModal')) closeModal();
+        }
     </script>
 </body>
+
 </html>
